@@ -1,6 +1,6 @@
 # Introduction 
 
-This repository contains R code for a Predictive Econometrics (M.A.) course at UNISG.
+This repository contains R code for a Financial Econometrics (M.A.) course at UNISG.
 
 # Specfications on Files
 
