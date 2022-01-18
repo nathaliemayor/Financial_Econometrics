@@ -12,4 +12,8 @@ For given time series (asset prices), computation of confidence intervals and co
 
 For given time series (asset prices), estimation of the market model, analysis of the residuals, testing for heteroskedasticity, testing for autocorrelation (Durbin-Watson test), computation of HAC standard errors, estimation of the CAPM in a SURE fashion and using non-HAC covariance estimator, test for joint significance, estimation of the CAPM with robust standard errors, testing the joint significance through a Chi-square test.
 
+## [A3_predicting_asset_returns.R](https://github.com/nathaliemayor/Financial_Econometrics/blob/main/A3_predicting_asset_returns.R)
+
+For given time series (asset prices), construction of correlograms (ACF, PACF), selection of an AR(p) process, analysis of the residuals, stationarity tests (ADF, KPSS) and Diebold-Mariano test.
+
 ## []()
