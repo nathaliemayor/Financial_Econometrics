@@ -14,7 +14,7 @@ For given time series (asset prices), estimation of the market model, analysis o
 
 ## [A3_predicting_asset_returns.R](https://github.com/nathaliemayor/Financial_Econometrics/blob/main/A3_predicting_asset_returns.R)
 
-For given time series (asset prices), construction of correlograms (ACF, PACF), selection of an AR(p) process, analysis of the residuals, stationarity tests (ADF, KPSS) and Diebold-Mariano test.
+For given time series (asset prices), construction of correlograms (ACF, PACF), selection of an *AR(p)* process, analysis of the residuals, stationarity tests (ADF, KPSS) and Diebold-Mariano test.
 
 ## [A4_mle_garch.R](https://github.com/nathaliemayor/Financial_Econometrics/blob/main/A4_mle_garch.R)
 
