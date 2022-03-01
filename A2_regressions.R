@@ -50,8 +50,6 @@ ts_s2_data<-ts_s2_data[-1,]
 fit_mult <- lm(mult ~ mktrf, data=ts_s2_data)
 summary(fit_mult)
 
-
-
 #### Q2 ####
 alpha_mult<-fit_mult$coefficients[1]
 beta_mult<-fit_mult$coefficients[2]
@@ -104,13 +102,10 @@ dwtest(fit_mult)
 #### Q5 ####
 lag1 <- floor(0.75*nobs^(1/3)) 
 
-lag1
-
 nobs^(1/4)
 
 fit1 <- coeftest(fit_mult, 
                  vcov = NeweyWest(fit_mult, lag=lag1, prewhite = FALSE))    
-fit1
 
 #### Q6 ####
 r_mac <- ts_s2_data$mac ~ ts_s2_data$mktrf                               
@@ -140,8 +135,6 @@ ts_s2_new <- ts_s2_new['2009-07/',]
 
 fitnew <- lm(data=ts_s2_new, mult ~ mktrf)   
 
-fitnew
-
 bptest(fitnew, ~ mktrf + I(mktrf^2), data = ts_s2_new)           
 
 dwtest(fitnew)                                  
@@ -154,7 +147,6 @@ m_sub <- floor(0.75*T_sub^(1/3))
 fit_rob <- coeftest(fitnew,                                   
                     vcov = NeweyWest(fitnew, lag= m_sub, 
                                      prewhite = FALSE))                               
-fit_rob
 
 # Std. Error  (beta) = 0.024822
 # coefficient (beta)=  0.196804 
@@ -183,7 +175,6 @@ m_fi_capm <- 4
 fit.rob_fi_capm <- coeftest(fit_fi_capm,                  
                              vcov = NeweyWest(fit_fi_capm, 
                                               lag=m_fi_capm,prewhite = FALSE))                               
-fit.rob_fi_capm
 
 # FAMA-FRENCH:
 
@@ -204,8 +195,6 @@ m_fi_ff <- 4
 fit.rob_fi_ff <- coeftest(fit_fi_ff, 
                            vcov = NeweyWest(fit_fi_ff,
                                             lag=m_fi_ff,prewhite = FALSE))
-fit.rob_fi_ff  
-
 
 #### Q10 ####
 r1_ff <- ts_s2_data$fi   ~ ts_s2_data$mktrf +ts_s2_data$smb +ts_s2_data$hml +ts_s2_data$rmw +ts_s2_data$cma  
