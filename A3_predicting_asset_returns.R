@@ -30,19 +30,16 @@ plot(ts$ENER)
 
 ts_sub <- ts
 ts_sub <- ts_sub['/2008-12',]
-ts_sub
 correlogram_acf_ENER <- ggAcf(ts_sub$return_ENER,lag.max=15,calc.ci = TRUE, level = 95)+    
   ggtitle("Correlogram of ENER - ACF")+
   labs(x="Lag", y= 'Autocorrelation')+
   theme_bw()
-correlogram_acf_ENER
 ggsave("1.correlogram_acf_ERER.png")                                
 
 correlogram_pacf_ENER <- ggPacf(ts_sub$return_ENER,lag.max=15,calc.ci = TRUE, level = 95)+    
   ggtitle("Correlogram of ENER - PACF")+
   labs(x="Lag", y= 'Partial Autocorrelation')+
   theme_bw()
-correlogram_pacf_ENER
 ggsave("2.correlogram_pacf_ENER.png")
 
 ggAcf(ts_sub$return_ENER,lag.max = 15)
@@ -51,15 +48,10 @@ ggAcf(ts_sub$return_ENER,lag.max = 15)
 #### Q2 ####
 fit <- ar.mle(as.ts(ts_sub$return_ENER),aic = TRUE)  
 fit_order <- fit$order  
-fit
-
-
 
 #### Q3 ####
 fit_ar_0 <- Arima(ts_sub$return_ENER,order = c(0,0,0))         
 checkresiduals(fit_ar_0)      
-
-fit_ar_0
 
 sd(ts_sub$return_ENER)
 
@@ -85,9 +77,6 @@ for (i in (nrow(ts['/2009-01'])) : nrow(ts))
 forecast_error_ar0 <- ts$return_ENER-ts$f_ar0               
 RMSE_ar0 <- sqrt(mean((forecast_error_ar0)^2,na.rm=TRUE))
 
-RMSE_ar0
-
-
 #### Q6 ####
 ts$PDR<-log(ts$SP500/ts$SPDIV)
 
@@ -104,11 +93,8 @@ summary(adf_fix)
 kpss <- ur.kpss(ts$PDR['/2018-12'] ,type="mu")                             
 summary(kpss)
 
-
-
 #### Q7 ####
 X <- cbind(ts$return_SP500, ts$eurusd, ts$VIX,ts$PDR, ts$return_ENER, lag(ts$return_ENER))
-X
 
 fit_ols <- lm(ts$return_ENER['/2008-12'] ~ lag(X['/2008-12']))
 
@@ -137,8 +123,6 @@ autoplot.zoo(series,facets=NULL)+
 
 forecast_error_ols <- ts$return_ENER-ts$f_ols                 
 RMSE_ols <- sqrt(mean((forecast_error_ols)^2,na.rm=TRUE))
-
-RMSE_ols
 
 #### Q9 ####
 dm.test(forecast_error_ar0, forecast_error_ols,                
