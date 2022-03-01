@@ -12,7 +12,6 @@ library(tseries)
 current_path <- rstudioapi::getActiveDocumentContext()$path
 setwd(dirname(current_path))
 
-
 ## import the data
 s1_data <- read.table("s1_data.txt",header = TRUE,sep= "\t")
 class(s1_data$date)
@@ -38,7 +37,6 @@ ts_s1_data$RF <- ts_s1_data$USRF/12
 
 # subsample
 ts_s1_data <- ts_s1_data['2011-01/']
-ts_s1_data
 
 # mean log returns for UKX and MXEF
 mean(ts_s1_data$ukx)
@@ -97,7 +95,6 @@ jarque.bera.test(ts_s1_data$mxef)
 mean(rowMeans(ReturnMatrix))
 
 SR<-mean(rowMeans(ReturnMatrix)-ts_s1_data$RF)/sd(rowMeans(ReturnMatrix))
-SR
 
 #### Q10 ####
 t.test(rowMeans(ReturnMatrix), alternative="two.sided",
