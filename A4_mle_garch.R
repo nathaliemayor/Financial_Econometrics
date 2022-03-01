@@ -39,7 +39,7 @@ spec1 <- ugarchspec(variance.model = list(model="sGARCH",garchOrder=c(4,0)),
                     mean.model = list(armaOrder=c(0,0)), 
                     distribution.model = "norm")
 model1 <- ugarchfit(spec = spec1, data = ts_ps4_data$utils)
-model1
+
 plot(model1, which=9) 
 
 
@@ -54,14 +54,12 @@ sigma(fitfor)
 coef <- coef(newfit)
 mu <- as.numeric(coef["mu"])
 VaR_oosample <- 10*mu +sigma(fitfor)*sqrt(10)*qnorm(0.05)
-VaR_oosample
 
 #### Q6 ####
 spec2 <- ugarchspec(variance.model = list(model="sGARCH",garchOrder=c(4,0)), 
                     mean.model = list(armaOrder=c(0,0)), 
                     distribution.model = "std")
 model2 <-ugarchfit(spec = spec2, data = ts_ps4_data$utils)
-model2
 plot(model2, which=9) 
 
 #### Q7 ####
@@ -72,9 +70,6 @@ spec3 <- ugarchspec(variance.model = list(model="gjrGARCH",garchOrder=c(1,1)),
 model3 <- ugarchfit(spec = spec3, data = ts_ps4_data$utils)
 
 max_sd <- max (sigma (ugarchfit(spec = spec3, data = ts_ps4_data$utils)))
-
-model3
-max_sd
 
 #### Q8 ####
 plot(model2, which=11) # ACF of Squared Standardized Residuals - Model 2
