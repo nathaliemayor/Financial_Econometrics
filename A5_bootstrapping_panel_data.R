@@ -61,11 +61,6 @@ pval.betam <- 2 * sum(boot.out_p$t[,2] < 0) / B
 pval.betas <- 2 * sum(boot.out_p$t[,3] < 0) / B
 pval.betah <- 2 * sum(boot.out_p$t[,4] < 0) / B
 
-pval.alpha
-pval.betam
-pval.betas
-pval.betah
-
 #### Q4 ####
 tsboot.out <- tsboot(res, get.coef, R=10000, sim="fixed", l=length(res)^(1/3)) 
 
@@ -73,11 +68,6 @@ pval.ts.alpha <- 2 * sum(tsboot.out$t[,1] < 0) / B
 pval.ts.beta <- 2 * sum(tsboot.out$t[,2] < 0) / B
 pval.ts.beta2 <- 2 * sum(tsboot.out$t[,3] < 0) / B
 pval.ts.beta3 <- 2 * sum(tsboot.out$t[,4] < 0) / B
-
-pval.ts.alpha
-pval.ts.beta
-pval.ts.beta2
-pval.ts.beta3
 
 #### Q5 ####
 data <- read.table("s5_data_panel_hw.txt",header = TRUE,sep="\t")
